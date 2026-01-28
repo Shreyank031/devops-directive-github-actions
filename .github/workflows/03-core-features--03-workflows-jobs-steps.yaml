@@ -28,3 +28,13 @@ jobs:
       - job-3
     steps:
       - run: echo "...to form a directed acyclic graph (DAG)"
+  job-5:
+    runs-on: ubuntu-24.04
+    steps:
+      - run: echo "This is the end of the workflow"
+  job-6: 
+    runs-on: ubuntu-24.04
+    needs:
+      - job-5
+    steps:
+      - run: echo "This is the end of the workflow version 2"
