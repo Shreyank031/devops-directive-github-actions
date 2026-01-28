@@ -29,3 +29,13 @@ jobs:
         - job-2
     steps:
         - run: echo "They can also depend on one another... version 2" 
+  job-5:
+    runs-on: ubuntu-24.04
+    steps:
+      - run: echo "This is the end of the workflow"
+  job-6: 
+    runs-on: ubuntu-24.04
+    needs:
+      - job-5
+    steps:
+      - run: echo "This is the end of the workflow version 2"
